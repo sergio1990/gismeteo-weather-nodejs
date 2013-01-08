@@ -1,0 +1,35 @@
+{
+  "name": "gismeteo-weather",
+  "description": "nodeJS/npm wrapper for the Gismeteo weather API",
+  "homepage": "",
+  "keywords": [
+    "gismeteo",
+    "weather"
+  ],
+  "author": {
+    "name": "Sergey Gernyak",
+    "email": "sergeg1990@gmail.com",
+    "url": "https://github.com/sergio1990"
+  },
+  "contributors": [
+    {
+      "name": "Sergey Gernyak",
+      "email": "sergeg1990@gmail.com",
+      "url": "https://github.com/sergio1990"
+    }
+  ],
+  "dependencies": {
+    "http-agent": "*",
+    "libxmljs": "*"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/sergio1990/gismeteo-weather-nodejs.git"
+  },
+  "main": "gismeteo-weather.js",
+  "version": "0.0.1",
+  "readme": "",
+  "readmeFilename": "readme.md",
+  "_id": "gismeteo-weather@0.0.1",
+  "_from": "gismeteo-weather@*"
+}
