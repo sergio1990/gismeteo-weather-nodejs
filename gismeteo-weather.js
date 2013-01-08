@@ -1,16 +1,21 @@
+var request = require('request');
+var libxmljs = require('libxmljs');
+
 (function() {
   var gw = {};
 
   /* Library settings */
 
   // Module version:
-  gw.version = '0.0.1';
+  gw.version = '0.0.3';
 
   // API base URL:
   gw.api_url = 'http://gismeteo.ua'
 
   // If something went wrong, you'll hear about it via `gw.error`
   gw.error = '';
+
+  gw.weather = {};
 
   gw.default_weather = {
     icon: "icy.png",
@@ -41,7 +46,7 @@
       }
 
       if ( typeof callback === 'function' ) {
-        callback(gw.error, data);
+        callback(gw.error, gw.weather);
       }
     });
 
@@ -50,14 +55,17 @@
 
   gw.parse = function(data, gw){
     try{
-      var xmlDoc = libxmljs.parseXml(data);      
-      var fact = xmlDoc.get('//fact').childNodes()[0];
-      data = gw.default_weather;
-      data.temp_c = parseInt(fact.attr('t').text());
-      data.temp_f = parseInt(parseFloat(9)/5 * data.temp_c + 32);
-      data.icon = parseInt(fact.attr('icon').text());
-      data.description = parseInt(fact.attr('descr').text());
+      var xmlDoc = libxmljs.parseXml(data);
+      var gchild = xmlDoc.get('//fact');
+      var children = gchild.childNodes();
+      var fact = children[0];
+      gw.weather = gw.default_weather;
+      gw.weather.temp_c = parseInt(fact.attr('t').value());
+      gw.weather.temp_f = parseInt(9/5 * gw.weather.temp_c + 32);
+      gw.weather.icon = fact.attr('icon').value();
+      gw.weather.description = fact.attr('descr').value();
     }catch(err){
+      console.log(err);
       gw.error = "Error XML parsing"
       return gw;
     }
