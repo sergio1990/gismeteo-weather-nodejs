@@ -31,25 +31,20 @@
   // Get city gismeteo id by name
   gw.getCityWeather = function(id, callback){
     var url = gw.api_url + id;
-    var agent = require('http-agent').create('', [{
-      method: 'GET',
-      uri: url
-    }]);
+    
+    request(url, function (error, response, body) {
+      var data = body ? body : null;
+      gw.error = error;
 
-    agent.addListener('next', function(err, agent){
-      var data = (agent && agent.body) ? agent.body : null;
-      gw.error = err;
-
-      if ( !gw.error ) {
+      if (!error && response.statusCode == 200) {
         gw.parse.call(gw, data, gw);
       }
 
       if ( typeof callback === 'function' ) {
         callback(gw.error, data);
-      }      
+      }
     });
 
-    agent.start();
     return gw;
   }
 

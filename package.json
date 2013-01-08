@@ -19,7 +19,7 @@
     }
   ],
   "dependencies": {
-    "http-agent": "*",
+    "request": "*",
     "libxmljs": "*"
   },
   "repository": {
@@ -27,9 +27,9 @@
     "url": "git://github.com/sergio1990/gismeteo-weather-nodejs.git"
   },
   "main": "gismeteo-weather.js",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "readme": "",
   "readmeFilename": "readme.md",
-  "_id": "gismeteo-weather@0.0.1",
+  "_id": "gismeteo-weather@0.0.2",
   "_from": "gismeteo-weather@*"
 }
