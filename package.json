@@ -27,9 +27,9 @@
     "url": "git://github.com/sergio1990/gismeteo-weather-nodejs.git"
   },
   "main": "gismeteo-weather.js",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "readme": "",
   "readmeFilename": "readme.md",
-  "_id": "gismeteo-weather@0.0.3",
+  "_id": "gismeteo-weather@0.0.4",
   "_from": "gismeteo-weather@*"
 }

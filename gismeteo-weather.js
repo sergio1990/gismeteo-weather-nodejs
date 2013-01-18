@@ -1,13 +1,15 @@
-var request = require('request');
-var libxmljs = require('libxmljs');
+
 
 (function() {
   var gw = {};
 
+  var request = require('request');
+  var libxmljs = require('libxmljs');
+
   /* Library settings */
 
   // Module version:
-  gw.version = '0.0.3';
+  gw.version = '0.0.4';
 
   // API base URL:
   gw.api_url = 'http://gismeteo.ua'
